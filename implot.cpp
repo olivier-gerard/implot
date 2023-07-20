@@ -4554,9 +4554,9 @@ void ColormapScale(const char* label, double scale_min, double scale_max, const 
     const bool reversed = scale_min > scale_max;
 
     float bb_grad_shift = opposite ? pad : 0;
-    ImRect bb_grad(bb_frame.Min + gp.Style.PlotPadding + ImVec2(bb_grad_shift, 0),
-                   bb_frame.Min + ImVec2(bar_w + gp.Style.PlotPadding.x + bb_grad_shift,
-                                         frame_size.y - gp.Style.PlotPadding.y));
+    ImRect bb_grad(bb_frame.Min + gp.Style.PlotPadding + ImVec2(bb_grad_shift, label_size.y / 2.f),
+                    bb_frame.Min + ImVec2(bar_w + gp.Style.PlotPadding.x + bb_grad_shift,
+                                        frame_size.y - gp.Style.PlotPadding.y - label_size.y / 2.f));
 
     ImGui::PushClipRect(bb_frame.Min, bb_frame.Max, true);
     const ImU32 col_text = ImGui::GetColorU32(ImGuiCol_Text);
